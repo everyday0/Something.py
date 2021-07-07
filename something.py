@@ -44,8 +44,8 @@ def welcome():
 		game()
 def noacc():
 	print('Welcome to "Something.py"!')
-	n = int(input("Please Enter your Username, or press 1 to create an account : "))
-	if n == 1:
+	n = input('Please Enter your Username, or type "new" to create an account : ')
+	if n == 'new' or 'New':
 		print('--------------- Sign Up ------------------ \n')
 		a = input('What would you like this system to call you? : ')
 		c = input('What should your password be? : ')
@@ -56,14 +56,21 @@ def noacc():
 		print()
 		print('- - - - - - - - - - - -') 
 		print('Welcome to "Something.py"!')
-	d = input("Please Enter your Username, or press 1 to create an account : ")
+	d = input('Please Enter your Username, or type "new" to create an account : ')
 	if d == a:
 		print('--------------- Log In ------------------- \n')
 		print('Hello '+a)
 		f = input("Please Enter your Password : ")
 		if f == c:
 			welcome()
-			reff1= open("accounts.txt","a+")
-			reff1.write(a+c)
+			reff1= open("usernames.txt","a+")
+			reff1.write(a)
+			reff1.close()
+			reff2= open("passwords.txt","a+")
+			reff2.write(c)
+			reff2.close()
+	else:
+		print('This User does not Exist in our Database.')
 noacc()
 ######################################################################################
+
